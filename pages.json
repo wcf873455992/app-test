@@ -1,0 +1,70 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/index/index",			
+			"style" : {
+			    "app-plus" : {
+					"navigationBarTitleText": "物业",
+			        "titleNView" : false //禁用原生导航栏
+			    },
+			    "enablePullDownRefresh" : true // 开启单页面下拉刷新功能
+			}
+		},
+		{
+		    "path" : "pages/garden/garden_details/garden_details",
+		    "style" : {
+				"navigationBarTitleText": "园区"
+			}
+		}
+        ,{
+            "path" : "pages/my/my",
+            "style" : {
+                "app-plus" : {
+                    "titleNView" : false //禁用原生导航栏
+                },
+                "navigationBarTextStyle" : "white",
+                "navigationBarTitleText" : "我的",
+                "navigationBarBackgroundColor" : "#ffd655"
+            }
+        }
+        ,{
+            "path" : "pages/garden/garden_room/garden_room",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/my/myinfo/myinfo",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/registLogin/registLogin",
+            "style" : {}
+        }
+    ],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "uni-app",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8"
+	},
+	"tabBar" : {
+	    "color" : "#bfbfbf",
+	    "selectedColor" : "#515151",
+	    "borderStyle" : "black",
+	    "backgroundColor" : "#ffffff",
+	    "list" : [
+	        {
+	            "pagePath" : "pages/index/index",
+	            "text" : "首页",
+	            "iconPath" : "static/tabBarIco/index.png",
+	            "selectedIconPath" : "static/tabBarIco/index_sel.png"
+	        },
+	        
+	        {
+	            "pagePath" : "pages/my/my",
+	            "text" : "我的",
+	            "iconPath" : "static/tabBarIco/me.png",
+	            "selectedIconPath" : "static/tabBarIco/me_sel.png"
+	        }
+	    ]
+	}
+}

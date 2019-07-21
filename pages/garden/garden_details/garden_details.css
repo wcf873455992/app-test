@@ -1,0 +1,122 @@
+.carousel {
+	width: 100%;
+	height: 440upx;
+}
+
+/* 园区列表 start*/
+.garden-list {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	/* flex-wrap: wrap; */	
+	padding: 100upx 10upx 0upx 10upx;
+	
+}
+.single-garden {
+	display: flex;
+	flex-direction: row;
+	/* justify-content: space-between; */
+	padding: 30upx 20upx;
+	border-top: outset   1px;
+	border-top-color: #dbdbda;
+}
+.image-garden {
+	width: 180upx;
+	height: 200upx;
+	border-radius:  3%;
+}
+.garden-desc {
+	/* width: 340upx; */
+	display: flex;
+	flex-direction: column;
+	padding: 0upx 10upx;
+	/* align-items: stretch; */
+	/* align-content: stretch; */
+	flex-grow: 1;
+}
+.garden-title {
+	display: flex;
+	white-space: nowrap;
+	font-size: uni-font-size-base;
+	overflow: hidden;
+	/* text-overflow: ellipsis; */
+	flex-direction: row;
+	justify-content: space-between;
+	/* flex-basis: auto; */
+	align-items: baseline;
+	/* background-color: #007AFF; */
+}
+.garden-title1 {
+	white-space: nowrap;
+	/* overflow: hidden; */
+	text-overflow: ellipsis;
+	font-size: uni-font-size-base;
+	/* flex-direction: row; */
+	/* background-color: #999999; */
+}
+.garden-title2 {
+	white-space: nowrap;
+	/* overflow: hidden; */
+	text-overflow: ellipsis;
+	font-size: 15px;
+	/* flex-direction: row; */
+	/* background-color: #4CD964; */
+}
+.garden-info {
+	color: #808080;
+	font-size: 14px;
+}
+.garden-operator{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+.garden-info-price {
+	color: #007AFF;
+	font-size: 18px;
+}
+/* 园区列表 end*/
+
+.garden-room-status{
+	display: flex;
+	flex-direction: column;
+	/* justify-content: space-between; */
+	padding: 10upx 20upx;
+	/* border-top: outset   1px; */
+	/* border-top-color: #dbdbda; */
+	background-color: #FFFFFF;
+}
+
+.garden-floor{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	/* padding: 30upx 20upx; */
+	/* border-top: outset   1px; */
+	/* border-top-color: #dbdbda; */
+	background-color: #C8C7CC;
+	margin-top: 5upx;
+}
+.garden-floorname{
+	width: 80upx;
+	text-align: center;
+	flex-shrink: 0;//避免被尺寸挤压
+}
+.garden-rooms{
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	flex-wrap: wrap;
+	background-color: #F0AD4E;	
+	flex-grow: 1;//拉伸非固定尺寸元素
+	padding: 0upx 10upx 5upx 5upx;
+}
+.garden-room{
+	width: 180upx;
+	height: 90upx;
+	background-color: #4CD964;
+	margin: 5upx;	
+	/* padding: 0upx 10upx 10upx 10upx; */
+	text-align: center;
+	/* flex-grow: 1;//拉伸非固定尺寸元素 */
+}
