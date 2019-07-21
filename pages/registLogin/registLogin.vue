@@ -204,42 +204,65 @@
 				var me = this;
 				var mobile = e.detail.value.mobile;
 				var password = e.detail.value.password;
-// 				console.log(username);
-// 				console.log(password);
-
+				console.log(mobile);
+				console.log(password);
+				// debugger;
 				// 发起注册/登录的请求
-				var serverUrl = me.serverUrl;
+				let headers = {};
 				uni.request({
-					url: this.serverUrl +'/api/login', //仅为示例，并非真实接口地址。
-					// url: this.serverUrl + '/api/garden/list', 
+					url: this.serverUrl +'/api/login', //
 					method: 'POST',//get或post
-					headers: headers,
+					// headers: headers,
 					data: {
-						mobile: this.mobile,
-						password: this.password
+						mobile: mobile,
+						password: password
 					},
 					method: "POST",
-					success: (res) => {
-						
-						// 获取真实数据之前，务必判断状态是否为200
-						if (res.data.status == 200) {
-							var userInfo = res.data.data;
-							// console.log(userInfo);
-							// 保存用户信息到全局的缓存中
-							uni.setStorageSync("globalUser", userInfo);
-							// 切换页面跳转，使用tab切换的api
-							uni.switchTab({
-								url: "../me/me"
-							});
-						} else if (res.data.status == 500) {
-							uni.showToast({
-								title: res.data.msg,
-								duration: 2000,
-								image: "../../static/icos/error.png"
-							})
+					success: result => {
+						console.log(result);									
+						//返回的基本信息做本地缓存
+						let data = result.data;
+						if (data.code === 0) {									
+							// this.login(result.data);
+							// uni.navigateBack();  							
+							// this.$store.commit('update',['isLogin',true]);
+							uni.setStorageSync('token', data.token);							
+							// this.$api.msg('登录成功');
+							
+						} else {
+							uni.removeStorageSync('token');	
+							// this.$api.msg(result.data.msg);
+							this.logining = false;
 						}
-					}
-				});
+					},
+					fail: () => {
+						uni.hideLoading();				
+						// uni.navigateBack();  	
+						// this.$api.msg('网络连接失败');
+					},
+					complete: () => {},			   
+				});	
+				// 	success: (res) => {
+				// 		
+				// 		// 获取真实数据之前，务必判断状态是否为200
+				// 		if (res.data.status == 200) {
+				// 			var userInfo = res.data.data;
+				// 			// console.log(userInfo);
+				// 			// 保存用户信息到全局的缓存中
+				// 			uni.setStorageSync("globalUser", userInfo);
+				// 			// 切换页面跳转，使用tab切换的api
+				// 			uni.switchTab({
+				// 				url: "../me/me"
+				// 			});
+				// 		} else if (res.data.status == 500) {
+				// 			uni.showToast({
+				// 				title: res.data.msg,
+				// 				duration: 2000,
+				// 				image: "../../static/icos/error.png"
+				// 			})
+				// 		}
+				// 	}
+				// });
 			}
 		}
 	}
