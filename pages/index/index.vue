@@ -15,7 +15,7 @@
 			:data-gardenId="gardeninfo.gardenId"
 			@click="showGardenDetail"
 			>
-				<image src="http://122.152.205.72:88/superhero/DC/GreenLantern/cover.jpg" class="image-garden"></image>
+				<image :src="gardeninfo.image" class="image-garden"></image>
 
 				<view class="garden-desc">					
 					<view class="garden-title">
@@ -64,8 +64,8 @@
 			return {
 				trailerList: [],
 				keywords: "", // 搜索的关键字
-				page: 1, // 当前第几页
-				totalPages: 1 ,// 总页数
+				currPage: 1, // 当前第几页
+				totalPage: 1 ,// 总页数
 				gardenList: []
 			};
 		},
@@ -106,16 +106,16 @@
 		onReachBottom() {
 			var me = this;
 
-			var page = me.page + 1; // 查询下一页面，当前页数累加1
+			var currPage = me.currPage + 1; // 查询下一页面，当前页数累加1
 			var keywords = me.keywords; // 获得当前页面中data里的搜索值
-			var totalPages = me.totalPages; // 获取总页数
+			var totalPage = me.totalPage; // 获取总页数
 
 			// 如果当前需要分页的分页数和总页数相等，就不分页
-			if (page > totalPages) {
+			if (currPage > totalPage) {
 				return;
 			}
 
-			me.pagedTrailerList(keywords, page, 15);
+			me.pagedTrailerList(keywords, currPage, 15);
 
 		},
 		methods: {
@@ -135,6 +135,7 @@
 						let data = result.data;
 						if (data.code === 0) {									
 							// this.$api.msg('加载成功');
+							uni.hideLoading();
 							let gardenList = data.page.list;
 							this.gardenList = gardenList|| [];
 							// this.gardenList = gardenList;

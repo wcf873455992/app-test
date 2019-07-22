@@ -14,7 +14,9 @@
             "autoclose" : true,
             "delay" : 0
         },
-        "modules" : {},
+        "modules" : {
+            "OAuth" : {}
+        },
         /* 模块配置 */
         "distribute" : {
             /* 应用发布信息 */
@@ -47,7 +49,22 @@
             },
             "ios" : {},
             /* ios打包配置 */
-            "sdkConfigs" : {}
+            "sdkConfigs" : {
+                "oauth" : {
+                    "weixin" : {
+                        "appid" : "123",
+                        "appsecret" : "123"
+                    },
+                    "qq" : {
+                        "appid" : "123"
+                    },
+                    "sina" : {
+                        "appkey" : "123",
+                        "appsecret" : "123",
+                        "redirect_uri" : "123"
+                    }
+                }
+            }
         }
     },
     /* SDK配置 */

@@ -8,6 +8,14 @@ Vue.config.productionTip = false
  Vue.prototype.serverUrl = "http://www.wcf-monkey.top:8001/renren-api";		// 开发环境
 
 
+Vue.prototype.getGlobalUser = function(key) {
+	var userInfo = uni.getStorageSync("globalUser");
+	if (userInfo != null && userInfo != "" && userInfo != undefined) {
+		return userInfo;
+	} else {
+		return null;
+	}
+}
 
 App.mpType = 'app'
 

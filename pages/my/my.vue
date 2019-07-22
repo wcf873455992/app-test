@@ -3,7 +3,8 @@
 		
 		<view class="header">
 			<view v-if="userIsLogin">
-				<image :src="userInfo.faceImage" class="face"></image>
+				<!-- <image :src="userInfo.faceImage" class="face"></image> -->
+				<image src="http://122.152.205.72:88/group1/M00/00/05/CpoxxFw_-5-AFyVyAABLIH8xBTw233.png" class="face"></image>
 			</view>
 			<view v-else>
 				<image src="http://122.152.205.72:88/group1/M00/00/05/CpoxxFw_-5-AFyVyAABLIH8xBTw233.png" class="face"></image>
@@ -11,7 +12,8 @@
 			
 			<view class="info-wapper" v-if="userIsLogin">
 				<view class="nickname">
-					{{userInfo.nickname}}
+					<!-- {{userInfo.nickname}} -->					
+					{{userInfo.username}}
 				</view>
 				<view class="nav-info">ID:{{userInfo.id}}</view>
 			</view>
@@ -22,7 +24,7 @@
 			</view>
 			
 			<view class="set-wapper" v-if="userIsLogin">
-				<navigator url="../meInfo/meInfo">
+				<navigator url="/pages/my/myinfo/myinfo">
 					<image src="../../static/icos/settings.png" class="settings"></image>	
 				</navigator>
 			</view>
@@ -42,17 +44,17 @@
 		},
 		onShow() {
 					var me = this;
-					// �û�״̬���л�
-		// 			var userInfo = uni.getStorageSync("globalUser");
-		// 			if (userInfo != null && userInfo != "" && userInfo != undefined) {
-		// 				me.userIsLogin = true;
-		// 				me.userInfo = userInfo;
-		// 			} else {
-		// 				me.userIsLogin = false;
-		// 				me.userInfo = {};
-		// 			}
+					//用户状态切换
+					// var userInfo = uni.getStorageSync("globalUser");
+					// if (userInfo != null && userInfo != "" && userInfo != undefined) {
+					// 	me.userIsLogin = true;
+					// 	me.userInfo = userInfo;
+					// } else {
+					// 	me.userIsLogin = false;
+					// 	me.userInfo = {};
+					// }
 		
-					// ʹ�ù��ط�����ȡ�û�����
+					// 使用挂载方法获取用户数据
 					var userInfo = me.getGlobalUser("globalUser");
 					if (userInfo != null) {
 						me.userIsLogin = true;
@@ -61,7 +63,7 @@
 						me.userIsLogin = false;
 						me.userInfo = {};
 					}
-				}
+		}
 	}
 </script>
 
