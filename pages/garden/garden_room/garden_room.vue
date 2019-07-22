@@ -1,6 +1,15 @@
 <template>
-	<view>
-		园区房间页面
+	<view class="page">
+		<!-- 轮播图 start -->
+		<swiper :indicator-dots="true" :autoplay="true" class="carousel">
+		
+			<swiper-item v-for="carousel in carouselList">
+				<navigator open-type="navigate" :url="'../movie/movie?trailerId=' + carousel.movieId">
+					<image :src="carousel.image" class="carousel"></image>
+				</navigator>
+			</swiper-item>
+		</swiper>
+		<!-- 轮播图 end -->
 	</view>
 </template>
 
@@ -8,7 +17,19 @@
 	export default {
 		data() {
 			return {
-				
+				carouselList:[
+					{
+						image:"../../../static/carousel/batmanvssuperman.png"
+					},{
+						image:"../../../static/carousel/spiderman.png"
+					},{
+						image:"../../../static/carousel/batmanvssuperman.png"
+					},{
+						image:"../../../static/carousel/spiderman.png"
+					},{
+						image:"../../../static/carousel/batmanvssuperman.png"
+					}
+				]
 			}
 		},
 		onLoad(params) {

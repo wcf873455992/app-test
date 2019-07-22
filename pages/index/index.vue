@@ -101,7 +101,8 @@
 			// });
 			// 
 			// debugger;
-			this.refresh();
+			this.gardenList = uni.getStorageSync("gardenList");
+			// this.refresh();
 		},
 		onReachBottom() {
 			var me = this;
@@ -136,8 +137,10 @@
 						if (data.code === 0) {									
 							// this.$api.msg('加载成功');
 							uni.hideLoading();
-							let gardenList = data.page.list;
-							this.gardenList = gardenList|| [];
+							let gardenList = data.page.list;		
+							uni.setStorageSync("gardenList", this.gardenList);
+							this.gardenList = gardenList|| [];					
+							uni.stopPullDownRefresh();
 							// this.gardenList = gardenList;
 						} else {
 							// this.$api.msg(result.data.msg);
