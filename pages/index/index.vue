@@ -71,6 +71,7 @@
 		},
 		onPullDownRefresh() {
 			this.refresh();
+			uni.hideLoading();
 		},
 		onLoad() {
 			var me = this;
@@ -120,6 +121,9 @@
 		},
 		methods: {
 			refresh(){
+				uni.showLoading({
+					title:'加载中'
+				});
 				uni.request({
 				  // url: this.$url + '/renren-api/api/login',//此处使用了全局变量拼接url（main.js文件中），关于全局变量官方问答里有
 					// url: 'http://106.15.235.217:8001/renren-api/api/garden/list', 
@@ -135,21 +139,22 @@
 						let data = result.data;
 						if (data.code === 0) {									
 							// this.$api.msg('加载成功');
-							uni.hideLoading();
 							let gardenList = data.page.list;
 							this.gardenList = gardenList|| [];
 							// this.gardenList = gardenList;
 						} else {
 							// this.$api.msg(result.data.msg);
-						}
+						}						
+						uni.hideLoading();
 					},
 					fail: () => {
+						uni.hideLoading();
 						// uni.hideLoading();				
 						// uni.navigateBack();  	
 						// this.$api.msg('网络连接失败');
 					},
 					complete: () => {
-						
+						uni.hideLoading();
 					},
 				});	
 			},
@@ -187,6 +192,8 @@
 							me.totalPages = res.data.data.total; // 获取总页数
 							me.page = page; // 覆盖当前页面里的page
 						}
+						
+						uni.hideLoading();
 					},
 					complete: () => {
 						uni.hideNavigationBarLoading();

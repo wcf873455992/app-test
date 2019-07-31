@@ -41,8 +41,10 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
+	background-color: #FFFFFF;
+	padding-top: 55upx;
 	/* flex-wrap: wrap; */	
-	padding: 100upx 10upx 0upx 10upx;
+	/* padding: 100upx 10upx 0upx 10upx; */
 	
 }
 .single-garden {
@@ -50,19 +52,19 @@
 	flex-direction: row;
 	/* justify-content: space-between; */
 	padding: 30upx 20upx;
-	border-top: outset   1px;
-	border-top-color: #dbdbda;
+	border-bottom: solid   1px;
+	border-bottom-color: #E8E5E5;
 }
 .image-garden {
-	width: 180upx;
-	height: 200upx;
-	border-radius:  3%;
+	width: 35%;
+	height: 220upx;
+	float: left;
 }
 .garden-desc {
 	/* width: 340upx; */
 	display: flex;
 	flex-direction: column;
-	padding: 0upx 10upx;
+	padding-left: 10upx;
 	/* align-items: stretch; */
 	/* align-content: stretch; */
 	flex-grow: 1;
@@ -80,18 +82,23 @@
 	/* background-color: #007AFF; */
 }
 .garden-title1 {
-	white-space: nowrap;
-	/* overflow: hidden; */
-	text-overflow: ellipsis;
+	
 	font-size: uni-font-size-base;
+	color: #2f3334;
+	font-weight: 600;
+	overflow: hidden;	
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	
 	/* flex-direction: row; */
 	/* background-color: #999999; */
 }
 .garden-title2 {
-	white-space: nowrap;
+	/* white-space: nowrap; */
 	/* overflow: hidden; */
-	text-overflow: ellipsis;
-	font-size: 15px;
+	/* text-overflow: ellipsis; */
+	font-size: 28upx;
+	font-weight: 500;
 	/* flex-direction: row; */
 	/* background-color: #4CD964; */
 }

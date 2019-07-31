@@ -1,5 +1,6 @@
 .carousel {
-	width: 100%;
+	padding: 10upx;
+	width: 730upx;
 	height: 440upx;
 }
 
@@ -29,7 +30,7 @@
 	/* width: 340upx; */
 	display: flex;
 	flex-direction: column;
-	padding: 0upx 10upx;
+	padding: 0upx 15upx;
 	/* align-items: stretch; */
 	/* align-content: stretch; */
 	flex-grow: 1;
@@ -95,7 +96,7 @@
 	/* border-top: outset   1px; */
 	/* border-top-color: #dbdbda; */
 	background-color: #C8C7CC;
-	margin-top: 5upx;
+	margin-top: 10upx;
 }
 .garden-floorname{
 	width: 80upx;

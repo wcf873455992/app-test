@@ -44,7 +44,7 @@
 				
 				>
 					<view class="garden-room"
-					:data-roomNumber="101"
+					:data-roomid="101"
 					:data-gardenId = "gardeninfo.gardenId"
 					@click="showRoomDetail"
 					>
@@ -157,13 +157,14 @@
 		},
 		methods: {
 			showRoomDetail(e) {
-				var roomNumber = e.currentTarget.dataset.roomnumber;		//变量小写
+				var roomid = e.currentTarget.dataset.roomid;		//变量小写
 				var gardenId = e.currentTarget.dataset.gardenid;			//变量小写
 				
 				// var gardenId = 1;
 				// 页面跳转接口api
 				uni.navigateTo({
-					url:"../garden_room/garden_room?roomnumber=" + roomNumber + '&gardenId='+gardenId
+					// url:"../garden_room/garden_room?roomnumber=" + roomNumber + '&gardenId='+gardenId,
+					url:"../garden_room/garden_room?roomid=" + roomid
 				})
 			},
 		}
