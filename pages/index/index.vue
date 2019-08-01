@@ -7,7 +7,6 @@
 			</view>
 			<input placeholder="搜索" maxlength="10" class="search-text" confirm-type="search" @confirm="searchMe" />
 		</view>
-		<view class="">首页	1	</view>
 		<view class="garden-list page-block">
 			<!-- <image src="http://122.152.205.72:88/superhero/DC/GreenLantern/cover.jpg" class="image-garden"></image> -->
 			<!-- H5控制层填加@CrossOrigin -->
@@ -33,25 +32,6 @@
 					
 				</view>
 			</view>
-			<view class="single-garden" >
-				<image src="http://122.152.205.72:88/superhero/DC/GreenLantern/cover.jpg" class="image-garden"></image>
-			
-				<view class="garden-desc">					
-					<view class="garden-title">
-						<view class="garden-title1">东硕空间</view>
-						<view class="garden-title2">可租50套</view>
-					</view>
-					<view class="garden-info">上海·闵行·莘庄</view>
-					<view class="garden-info">伟业路621弄</view>
-					<view class="garden-info">100㎡</view>
-					
-					<view class="garden-operator">
-						<view class="garden-title">自营	</view>						
-						<view class="garden-info">35元</view>
-					</view>
-					
-				</view>
-			</view>
 			
 		</view>
 
@@ -71,37 +51,10 @@
 		},
 		onPullDownRefresh() {
 			this.refresh();
-			uni.hideLoading();
 		},
 		onLoad() {
 			var me = this;
-
-			// uni.showLoading({
-			// 	mask: true,
-			// 	title: "请稍后..."
-			// });
-			// uni.showNavigationBarLoading();
-
 			var serverUrl = me.serverUrl;
-			// 查询猜你喜欢数据列表
-			// uni.request({
-			// 	url: serverUrl + '/search/list?keywords=&page=&pageSize=',
-			// 	method: "POST",
-			// 	success: (res) => {
-			// 		// 获取真实数据之前，务必判断状态是否为200
-			// 		if (res.data.status == 200) {
-			// 			// debugger;
-			// 			var trailerList = res.data.data.rows;
-			// 			me.trailerList = trailerList;
-			// 		}
-			// 	},
-			// 	complete: () => {
-			// 		uni.hideNavigationBarLoading();
-			// 		uni.hideLoading();
-			// 	}
-			// });
-			// 
-			// debugger;
 			this.refresh();
 		},
 		onReachBottom() {
@@ -120,10 +73,12 @@
 
 		},
 		methods: {
-			refresh(){
-				uni.showLoading({
-					title:'加载中'
-				});
+			refresh(){				
+				// uni.showLoading({
+				// 	mask: false
+				// });
+				// uni.showNavigationBarLoading();
+				
 				uni.request({
 				  // url: this.$url + '/renren-api/api/login',//此处使用了全局变量拼接url（main.js文件中），关于全局变量官方问答里有
 					// url: 'http://106.15.235.217:8001/renren-api/api/garden/list', 
@@ -137,24 +92,23 @@
 						console.log(result);									
 						//返回的基本信息做本 地缓存
 						let data = result.data;
-						if (data.code === 0) {									
-							// this.$api.msg('加载成功');
+						if (data.code === 0) {
 							let gardenList = data.page.list;
 							this.gardenList = gardenList|| [];
 							// this.gardenList = gardenList;
 						} else {
 							// this.$api.msg(result.data.msg);
-						}						
-						uni.hideLoading();
+						}
 					},
 					fail: () => {
-						uni.hideLoading();
 						// uni.hideLoading();				
 						// uni.navigateBack();  	
 						// this.$api.msg('网络连接失败');
 					},
-					complete: () => {
+					complete: () => {						
+						uni.hideNavigationBarLoading();
 						uni.hideLoading();
+						uni.stopPullDownRefresh();
 					},
 				});	
 			},

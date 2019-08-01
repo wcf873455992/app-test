@@ -8,17 +8,19 @@
 	background-color: #eaeaea;
 	height: 60upx;
 	width: 650upx;
+	/* border-radius: 20upx; */
 }
 
 .search-block {
 	display: flex;
 	flex-direction: row;
-	padding: 0upx 20upx 20upx 20upx;
+	padding: 50upx 20upx 20upx 20upx;
 	/* 固定搜索栏 */
 	position: fixed;
 	top: 100;
-	z-index: 2000;
+	z-index: 999;
 	background-color: #F8F8F8;
+	border-radius: 20upx;
 }
 .search-ico-wapper {
 	background-color: #eaeaea;
@@ -42,9 +44,9 @@
 	flex-direction: column;
 	justify-content: flex-start;
 	background-color: #FFFFFF;
-	padding-top: 55upx;
+	padding-top: 120upx;
 	/* flex-wrap: wrap; */	
-	/* padding: 100upx 10upx 0upx 10upx; */
+	/* padding: 0upx 12upx; */
 	
 }
 .single-garden {
@@ -57,7 +59,7 @@
 }
 .image-garden {
 	width: 35%;
-	height: 220upx;
+	height: 217.5upx;
 	float: left;
 }
 .garden-desc {
@@ -83,7 +85,7 @@
 }
 .garden-title1 {
 	
-	font-size: uni-font-size-base;
+	font-size: 30upx;
 	color: #2f3334;
 	font-weight: 600;
 	overflow: hidden;	

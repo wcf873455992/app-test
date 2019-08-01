@@ -40,9 +40,7 @@
 			<view class="garden-floor">
 				<view class="garden-floorname">17F</view>
 				
-				<view class="garden-rooms"				
-				
-				>
+				<view class="garden-rooms">
 					<view class="garden-room"
 					:data-roomid="101"
 					:data-gardenId = "gardeninfo.gardenId"
