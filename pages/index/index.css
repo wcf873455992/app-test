@@ -108,6 +108,10 @@
 	color: #808080;
 	font-size: 14px;
 }
+.garden-type{
+	color: #DD524D;
+	font-size: 14px;
+}
 .garden-operator{
 	display: flex;
 	flex-direction: row;

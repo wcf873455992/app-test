@@ -10,24 +10,24 @@
 		<view class="garden-list page-block">
 			<!-- <image src="http://122.152.205.72:88/superhero/DC/GreenLantern/cover.jpg" class="image-garden"></image> -->
 			<!-- H5控制层填加@CrossOrigin -->
-			<view class="single-garden" v-for="(gardeninfo,index) in gardenList" :key="index"
-			:data-gardenId="gardeninfo.gardenId"
+			<view class="single-garden" v-for="(buildinginfo,index) in buildingList" :key="index"
+			:data-buildingId="buildinginfo.id"
 			@click="showGardenDetail"
 			>
-				<image :src="gardeninfo.image" class="image-garden"></image>
+				<image :src="buildinginfo.coverpic" class="image-garden"></image>
 
 				<view class="garden-desc">					
 					<view class="garden-title">
-						<view class="garden-title1">{{gardeninfo.gardenName}}</view>
-						<view class="garden-title2">可租{{gardeninfo.vacantRoom}}套</view>
-					</view>
-					<view class="garden-info">{{gardeninfo.location}}</view>
-					<view class="garden-info">{{gardeninfo.address}}</view>
-					<view class="garden-info">{{gardeninfo.acreage}}</view>
+						<view class="garden-title1">{{buildinginfo.name}}</view>
+						<view class="garden-title2">可租{{buildinginfo.waittingrentcount}}套</view>
+					</view>					
+					<view class="garden-title1">{{buildinginfo.areas}}</view>
+					<view class="garden-info">{{buildinginfo.address}}</view>
+					<view class="garden-info">{{buildinginfo.buildingaddress}}</view>
 					
 					<view class="garden-operator">
-						<view class="garden-title">自营	</view>						
-						<view class="garden-info">{{gardeninfo.prices}}</view>
+						<view class="garden-type">{{buildinginfo.buildingtype}}</view>						
+						<view class="garden-info">{{buildinginfo.prices}}</view>
 					</view>
 					
 				</view>
@@ -46,7 +46,7 @@
 				keywords: "", // 搜索的关键字
 				currPage: 1, // 当前第几页
 				totalPage: 1 ,// 总页数
-				gardenList: []
+				buildingList: []
 			};
 		},
 		onPullDownRefresh() {
@@ -82,7 +82,7 @@
 				uni.request({
 				  // url: this.$url + '/renren-api/api/login',//此处使用了全局变量拼接url（main.js文件中），关于全局变量官方问答里有
 					// url: 'http://106.15.235.217:8001/renren-api/api/garden/list', 
-					url: this.serverUrl + '/api/garden/list', 
+					url: this.serverUrl + '/api/building/list', 
 					method: 'POST',//get或post
 					// headers: headers,
 					data: {
@@ -93,8 +93,8 @@
 						//返回的基本信息做本 地缓存
 						let data = result.data;
 						if (data.code === 0) {
-							let gardenList = data.page.list;
-							this.gardenList = gardenList|| [];
+							let buildingList = data.page.list;
+							this.buildingList = buildingList|| [];
 							// this.gardenList = gardenList;
 						} else {
 							// this.$api.msg(result.data.msg);
@@ -113,11 +113,11 @@
 				});	
 			},
 			showGardenDetail(e) {
-				var gardenId = e.currentTarget.dataset.gardenid;
+				var buildingId = e.currentTarget.dataset.buildingid;
 				// var gardenId = 1;
 				// 页面跳转接口api
 				uni.navigateTo({
-					url: "../garden/garden_details/garden_details?gardenId=" + gardenId
+					url: "../garden/garden_details/garden_details?buildingId=" + buildingId
 				})
 			},
 			pagedTrailerList(keywords, page, pageSize) {

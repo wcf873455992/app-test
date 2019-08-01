@@ -13,22 +13,22 @@
 		<!-- 园区信息 -->
 		<view class="garden-desc">
 			<view class="garden-title">
-				<view class="garden-title1">{{gardeninfo.gardenName}}</view>
-				<view class="garden-title2">可租{{gardeninfo.vacantRoom}}套</view>
+				<view class="garden-title1">{{buildinginfo.name}}</view>
+				<view class="garden-title2">可租{{buildinginfo.waittingrentcount}}套</view>
 			</view>
-			<view class="garden-info">{{gardeninfo.location}}</view>
-			<view class="garden-info">{{gardeninfo.address}}</view>
-			<view class="garden-info">{{gardeninfo.prices}}</view>
-			<view class="garden-info">{{gardeninfo.acreage}}</view>
+			<view class="garden-info">{{buildinginfo.address}}</view>
+			<view class="garden-info">{{buildinginfo.buildingaddress}}</view>
+			<view class="garden-info">{{buildinginfo.unitprice}}</view>
+			<view class="garden-info">{{buildinginfo.areas}}</view>
 			<view class="garden-company">
 				<view class="garden-title2">入住企业</view>
 				<!-- <view class="">{{gardeninfo.company}}</view> -->
-				<view class="garden-info">{{gardeninfo.intro}}</view>
+				<view class="garden-info">{{buildinginfo.intro}}</view>
 			</view>
 			<view class="garden-characteristic">
 				<view class="garden-title2">园区特点</view>
 				<!-- <view class="">{{gardeninfo.characteristic}}</view> -->
-				<view class="garden-info">{{gardeninfo.characteristics}}</view>
+				<view class="garden-info">{{buildinginfo.characteristics}}</view>
 			</view>			
 		</view>
 		<view class="garden-room-status">
@@ -43,7 +43,7 @@
 				<view class="garden-rooms">
 					<view class="garden-room"
 					:data-roomid="101"
-					:data-gardenId = "gardeninfo.gardenId"
+					:data-buildingId = "buildinginfo.Id"
 					@click="showRoomDetail"
 					>
 						<view class="garden-info">1701</view>
@@ -89,6 +89,17 @@
 					</view>
 				</view>
 			</view>
+			<view class="building-intro">
+				<view class="building-title">楼盘简介</view>
+				<view class="building-info">
+					<view class="building-info">总楼层</view>
+					<view class="">建筑面积</view>
+					<view class="">标准层高</view>
+					<view class="">开发商</view>
+					<view class="">物业公司</view>
+				</view>
+				<view class="building-text">楼盘介绍</view>
+			</view>
 		</view>
 	</view>
 </template>
@@ -110,7 +121,7 @@
 						image:"../../../static/carousel/batmanvssuperman.png"
 					}
 				],
-				gardeninfo: []
+				buildinginfo: []
 			}
 		},
 		onLoad(params){
@@ -122,12 +133,12 @@
 				// this.$api.msg(`点击了${id}`);
 			}
 			// this.shareList = await this.$api.json('shareList');
-			var gardenid = params.gardenId; 
+			var buildingid = params.buildingId;
 			let headers = {};
 			uni.request({
 			  // url: this.$url + '/renren-api/api/login',//此处使用了全局变量拼接url（main.js文件中），关于全局变量官方问答里有
 				// url: 'http://106.15.235.217:8001/renren-api/api/garden/info/'+`${id}`, //仅为示例，并非真实接口地址。
-				url: this.serverUrl + '/api/garden/info/'+`${gardenid}`,
+				url: this.serverUrl + '/api/building/info/'+`${buildingid}`,
 				method: 'POST',//get或post
 				headers: headers,
 				data: {
@@ -140,18 +151,19 @@
 					if (data.code === 0) {									
 						// this.$api.msg('加载成功');
 						// let gardeninfo = data.garden;
-						this.gardeninfo = data.garden;
+						this.buildinginfo = data.building;
 					} else {
-						this.$api.msg(result.data.msg);
+						// this.$api.msg(result.data.msg);
 					}
 				},
 				fail: () => {
 					uni.hideLoading();				
 					// uni.navigateBack();  	
-					this.$api.msg('网络连接失败');
+					// this.$api.msg('网络连接失败');
 				},
 				complete: () => {},			   
 			});	
+			// debugger;
 		},
 		methods: {
 			showRoomDetail(e) {

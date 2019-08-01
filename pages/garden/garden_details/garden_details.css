@@ -121,3 +121,22 @@
 	text-align: center;
 	/* flex-grow: 1;//拉伸非固定尺寸元素 */
 }
+
+.building-intro{
+	display: flex;
+	flex-direction: column;
+	background-color: #FFFFFF;
+	padding: 15upx;
+	margin-top: 20;
+}
+.building-title{
+	font-size: uni-font-size-base;
+	font-weight: bold;
+}
+.building-info{
+	display: flex;
+	flex-direction: column;
+}
+.building-text{
+	font-size: uni-font-size-sm;
+}
