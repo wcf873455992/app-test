@@ -1,10 +1,11 @@
+/* @import url("../../uni.scss"); */
 /* 搜索框 start */
 .search-ico {
 	width: 40upx;
 	height: 40upx;
 }
 .search-text {
-	font-size: uni-font-size-sm;
+	font-size: $uni-font-size-sm;
 	background-color: #eaeaea;
 	height: 60upx;
 	width: 650upx;
@@ -83,8 +84,7 @@
 	align-items: baseline;
 	/* background-color: #007AFF; */
 }
-.garden-title1 {
-	
+.garden-title1 {	
 	font-size: 30upx;
 	color: #2f3334;
 	font-weight: 600;
@@ -92,17 +92,10 @@
 	white-space: nowrap;
 	text-overflow: ellipsis;
 	
-	/* flex-direction: row; */
-	/* background-color: #999999; */
 }
 .garden-title2 {
-	/* white-space: nowrap; */
-	/* overflow: hidden; */
-	/* text-overflow: ellipsis; */
 	font-size: 28upx;
 	font-weight: 500;
-	/* flex-direction: row; */
-	/* background-color: #4CD964; */
 }
 .garden-info {
 	color: #808080;

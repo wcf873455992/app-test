@@ -16,7 +16,7 @@
 	/* 固定搜索栏 */
 	position: fixed;
 	top: 100;
-	z-index: 1000;
+	z-index: 2000;
 	background-color: #F8F8F8;
 }
 .search-ico-wapper {

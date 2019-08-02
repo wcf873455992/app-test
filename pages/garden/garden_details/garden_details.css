@@ -26,6 +26,119 @@
 	height: 200upx;
 	border-radius:  3%;
 }
+.estateAddress{
+	/* display: flex; */
+	/* flex-direction: column; */
+	/* height: 200upx; */
+	border-bottom: 1px solid #bfbfbf;
+	padding-bottom: 20upx;	
+	/* border-top: 1px solid #ddd; */
+}
+.estateContent{
+	padding-bottom: 30upx;
+}
+.room-content{	
+	color: #808080;
+	font-size: 14px;
+	margin-top: 16upx;
+}
+.room-content1{
+	padding-left: 30upx;
+	margin-top: 20upx;
+	font-size: 14px;
+	/* font-weight: bold; */
+}
+.room-content2{	
+	padding-left: 30upx;
+	margin-top: 20upx;
+	font-size: 14px;
+	/* font-weight: bold; */
+}
+.room-details{
+	padding-left: 18upx;
+	color: #787878;
+	font-size: 14px;
+}
+.estateHouses{
+	display: flex;
+	flex-direction: column;
+	padding: 15upx;
+	background: #FFFFFF;
+}
+.RentInfo{
+	padding: 12upx 0;
+	font-size: 14px;
+}
+.RentControlList{
+	display: flex;
+	flex-direction: column;
+}
+.UintNoList{
+	display: flex;
+	flex-direction: row;
+	padding: 5upx 0;
+	background: #f3f3f3;
+	margin-top: 10upx;
+	flex-grow: 1;
+}
+.HouseListTitle{
+	float: left;
+	width: 15%;
+	text-align: center;
+	vertical-align: middle;
+	height: 17px;
+	line-height: 47px;	
+	flex-shrink: 0;//避免被尺寸挤压
+	/* background: #4CD964; */
+}
+.HouseList{
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	flex-wrap: wrap;
+	width: 85%;
+	/* float: left; */
+	padding-right: 5upx;	
+	flex-grow: 1;//拉伸非固定尺寸元素
+	/* background: #007AFF; */
+}
+.HouseItem{
+	width: 31.3333%;
+	margin: 1%;
+	background: #4CD964;
+	height: 90upx;
+	text-align: center;
+	/* color: #FFFFFF; */
+}
+.estate-detail{
+	display: flex;
+	flex-direction: column;
+	background-color: #FFFFFF;
+	padding: 15upx;
+	margin-top: 50upx;
+}
+.room-info{
+	display: flex;
+	flex-direction: column;
+}
+.room-info1{
+	display: flex;
+	flex-direction: row;
+	/* background: #4CD964; */
+}
+.lable{
+	color: #b4b4b4;
+	font-size: 14px;
+	width: 200upx;
+	margin-left: 30upx;
+}
+.lable-cnt{
+	font-size: 14px;
+	color: #646464;
+}
+
+
+
 .garden-desc {
 	/* width: 340upx; */
 	display: flex;
@@ -38,7 +151,6 @@
 .garden-title {
 	display: flex;
 	white-space: nowrap;
-	font-size: uni-font-size-base;
 	overflow: hidden;
 	/* text-overflow: ellipsis; */
 	flex-direction: row;
@@ -47,15 +159,16 @@
 	align-items: baseline;
 	/* background-color: #007AFF; */
 }
-.garden-title1 {
+.titleB {
 	white-space: nowrap;
 	/* overflow: hidden; */
 	text-overflow: ellipsis;
-	font-size: uni-font-size-base;
+	font-size: 34upx;
+	font-weight: 600;
 	/* flex-direction: row; */
 	/* background-color: #999999; */
 }
-.garden-title2 {
+.title2 {
 	white-space: nowrap;
 	/* overflow: hidden; */
 	text-overflow: ellipsis;
@@ -63,9 +176,14 @@
 	/* flex-direction: row; */
 	/* background-color: #4CD964; */
 }
-.garden-info {
+.title {
+	font-size: 30upx;
+	font-weight: 600;
+}
+.info {
 	color: #808080;
 	font-size: 14px;
+	/* margin-top: 16upx; */
 }
 .garden-operator{
 	display: flex;
@@ -122,21 +240,20 @@
 	/* flex-grow: 1;//拉伸非固定尺寸元素 */
 }
 
-.building-intro{
-	display: flex;
-	flex-direction: column;
-	background-color: #FFFFFF;
-	padding: 15upx;
-	margin-top: 20;
-}
+
 .building-title{
-	font-size: uni-font-size-base;
+	font-size: 30upx;
 	font-weight: bold;
 }
 .building-info{
 	display: flex;
-	flex-direction: column;
+	flex-direction: column;	
+	font-size: 24upx;
 }
 .building-text{
-	font-size: uni-font-size-sm;
+	border-top: 1px solid #ddd;
+	margin-top: 12upx;
+	padding: 12upx 0;
+	color: #787878;
+	font-size: 14px;
 }

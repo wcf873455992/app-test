@@ -21,7 +21,7 @@
 						<view class="garden-title1">{{buildinginfo.name}}</view>
 						<view class="garden-title2">可租{{buildinginfo.waittingrentcount}}套</view>
 					</view>					
-					<view class="garden-title1">{{buildinginfo.areas}}</view>
+					<view class="garden-info">{{buildinginfo.areas}}</view>
 					<view class="garden-info">{{buildinginfo.address}}</view>
 					<view class="garden-info">{{buildinginfo.buildingaddress}}</view>
 					
@@ -54,8 +54,10 @@
 		},
 		onLoad() {
 			var me = this;
-			var serverUrl = me.serverUrl;
-			this.refresh();
+			// var serverUrl = me.serverUrl;
+			// this.refresh();
+			this.buildingList = uni.getStorageSync("buildingList")
+			// debugger;
 		},
 		onReachBottom() {
 			var me = this;
@@ -95,6 +97,7 @@
 						if (data.code === 0) {
 							let buildingList = data.page.list;
 							this.buildingList = buildingList|| [];
+							uni.setStorageSync('buildingList', buildingList);
 							// this.gardenList = gardenList;
 						} else {
 							// this.$api.msg(result.data.msg);
@@ -168,6 +171,14 @@
 	}
 </script>
 
-<style>
+<style lang="scss">
+	// .garden-title1 {		
+	// 	font-size: $font-base;
+	// 	color: #2f3334;
+	// 	font-weight: 600;
+	// 	overflow: hidden;	
+	// 	white-space: nowrap;
+	// 	text-overflow: ellipsis;
+	// }
 	@import url("index.css");
 </style>

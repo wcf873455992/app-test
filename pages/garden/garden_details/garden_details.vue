@@ -1,8 +1,7 @@
 <template>
 	<view class="page">
 		<!-- 轮播图 start -->
-		<swiper :indicator-dots="true" :autoplay="true" class="carousel">
-		
+		<swiper :indicator-dots="true" :autoplay="true" class="carousel">		
 			<swiper-item v-for="carousel in carouselList">
 				<navigator open-type="navigate" :url="'../movie/movie?trailerId=' + carousel.movieId">
 					<image :src="carousel.image" class="carousel"></image>
@@ -10,95 +9,123 @@
 			</swiper-item>		
 		</swiper>
 		<!-- 轮播图 end -->
+		
 		<!-- 园区信息 -->
 		<view class="garden-desc">
-			<view class="garden-title">
-				<view class="garden-title1">{{buildinginfo.name}}</view>
-				<view class="garden-title2">可租{{buildinginfo.waittingrentcount}}套</view>
+			<view class="estateAddress">
+				<view class="garden-title">
+					<view class="titleB">{{buildinginfo.name}}</view>
+					<view class="title2">可租{{buildinginfo.waittingrentcount}}套</view>
+				</view>
+				<view class="room-content">{{buildinginfo.address}}</view>
+				<view class="room-content">{{buildinginfo.buildingaddress}}</view>
+				<view class="room-content">{{buildinginfo.unitprice}}</view>
+				<view class="room-content">{{buildinginfo.areas}}</view>
 			</view>
-			<view class="garden-info">{{buildinginfo.address}}</view>
-			<view class="garden-info">{{buildinginfo.buildingaddress}}</view>
-			<view class="garden-info">{{buildinginfo.unitprice}}</view>
-			<view class="garden-info">{{buildinginfo.areas}}</view>
-			<view class="garden-company">
-				<view class="garden-title2">入住企业</view>
-				<!-- <view class="">{{gardeninfo.company}}</view> -->
-				<view class="garden-info">{{buildinginfo.intro}}</view>
+			<view class="estateContent">
+				<view class="room-content1">入住企业</view>
+				<view class="room-details">{{buildinginfo.settledenterprise}}</view>
+				<view class="room-content2">楼盘特点</view>
+				<!-- <text class="room-details">{{buildinginfo.features}}</text> -->
+				<view class="room-details">{{buildinginfo.features}}</view>				
 			</view>
-			<view class="garden-characteristic">
-				<view class="garden-title2">园区特点</view>
-				<!-- <view class="">{{gardeninfo.characteristic}}</view> -->
-				<view class="garden-info">{{buildinginfo.characteristics}}</view>
-			</view>			
 		</view>
-		<view class="garden-room-status">
+		<view class="estateHouses">
 			<view class="garden-title">
-				<view class="garden-title1">房源销控图</view>
-				<view class="garden-title2">房源清单</view>
+				<view class="title">房源销控图</view>
+				<view class="title">房源清单</view>
 			</view>
-			<view class="garden-info">更新时间:2019年7月20日------待租、已收定、已租</view>
-			<view class="garden-floor">
-				<view class="garden-floorname">17F</view>
-				
+			<view class="RentInfo">更新时间:2019年7月20日------待租、已收定、已租</view>
+			
+			<view class="RentControlList">
+				<view class="UintNoTitle">C栋</view>
 				<view class="garden-rooms">
 					<view class="garden-room"
 					:data-roomid="101"
 					:data-buildingId = "buildinginfo.Id"
 					@click="showRoomDetail"
 					>
-						<view class="garden-info">1701</view>
-						<view class="garden-info">200㎡|3.5元</view>
+						<view class="info">1701</view>
+						<view class="info">200㎡|3.5元</view>
 					</view>
 				</view>
+				<view class="UintNoList">
+					<view class="HouseListTitle">8F</view>
+					<view class="HouseList">
+						<view class="HouseItem">							
+							<view class="info">1701</view>
+							<view class="info">200㎡|3.5元</view>
+						</view>
+						<view class="HouseItem">							
+							<view class="info">1701</view>
+							<view class="info">200㎡|3.5元</view>
+						</view>
+						<view class="HouseItem">							
+							<view class="info">1701</view>
+							<view class="info">200㎡|3.5元</view>
+						</view>
+						<view class="HouseItem">							
+							<view class="info">1701</view>
+							<view class="info">200㎡|3.5元</view>
+						</view>
+						<view class="HouseItem">							
+							<view class="info">1701</view>
+							<view class="info">200㎡|3.5元</view>
+						</view>
+					</view>
+				</view>
+				<view class="UintNoList">
+					<view class="HouseListTitle">9F</view>
+					<view class="HouseList">
+						<view class="HouseItem">							
+							<view class="info">1701</view>
+							<view class="info">200㎡|3.5元</view>
+						</view>
+						<view class="HouseItem">							
+							<view class="info">1701</view>
+							<view class="info">200㎡|3.5元</view>
+						</view>
+						<view class="HouseItem">							
+							<view class="info">1701</view>
+							<view class="info">200㎡|3.5元</view>
+						</view>
+						<view class="HouseItem">							
+							<view class="info">1701</view>
+							<view class="info">200㎡|3.5元</view>
+						</view>
+						<view class="HouseItem">							
+							<view class="info">1701</view>
+							<view class="info">200㎡|3.5元</view>
+						</view>
+					</view>
+				</view>	
 			</view>
 			
-			<view class="garden-floor">
-				<view class="garden-floorname">17F</view>
-				<view class="garden-rooms">
-					<view class="garden-room">
-						<view class="garden-info">1701</view>
-						<view class="garden-info">200㎡|3.5元</view>
+			<view class="estate-detail">
+				<view class="title">楼盘简介</view>
+				<view class="room-info">
+					<view class="room-info1">						
+						<view class="lable">总楼层</view>
+						<view class="lable-cnt">{{buildinginfo.floornum}}</view>						
 					</view>
-					<view class="garden-room">
-						<view class="garden-info">1701</view>
-						<view class="garden-info">200㎡|3.5元</view>
+					<view class="room-info1">						
+						<view class="lable">建筑面积</view>
+						<view class="lable-cnt">{{buildinginfo.area}}</view>						
 					</view>
-					<view class="garden-room">
-						<view class="garden-info">1701</view>
-						<view class="garden-info">200㎡|3.5元</view>
+					<view class="room-info1">						
+						<view class="lable">标准层高</view>
+						<view class="lable-cnt">{{buildinginfo.floorheight}}</view>						
 					</view>
-					<view class="garden-room">
-						<view class="garden-info">1701</view>
-						<view class="garden-info">200㎡|3.5元</view>
+					<view class="room-info1">						
+						<view class="lable">开发商</view>
+						<view class="lable-cnt">{{buildinginfo.developer}}</view>						
 					</view>
-					<view class="garden-room">
-						<view class="garden-info">1701</view>
-						<view class="garden-info">200㎡|3.5元</view>
-					</view>
-					<view class="garden-room">
-						<view class="garden-info">1701</view>
-						<view class="garden-info">200㎡|3.5元</view>
-					</view>
-					<view class="garden-room">
-						<view class="garden-info">1701</view>
-						<view class="garden-info">200㎡|3.5元</view>
-					</view>
-					<view class="garden-room">
-						<view class="garden-info">1701</view>
-						<view class="garden-info">200㎡|3.5元</view>
+					<view class="room-info1">						
+						<view class="lable">物业公司</view>
+						<view class="lable-cnt">{{buildinginfo.propertycompany}}</view>						
 					</view>
 				</view>
-			</view>
-			<view class="building-intro">
-				<view class="building-title">楼盘简介</view>
-				<view class="building-info">
-					<view class="building-info">总楼层</view>
-					<view class="">建筑面积</view>
-					<view class="">标准层高</view>
-					<view class="">开发商</view>
-					<view class="">物业公司</view>
-				</view>
-				<view class="building-text">楼盘介绍</view>
+				<view class="building-text">{{buildinginfo.description}}</view>
 			</view>
 		</view>
 	</view>
@@ -162,7 +189,17 @@
 					// this.$api.msg('网络连接失败');
 				},
 				complete: () => {},			   
-			});	
+			}); 
+			
+			// uni.request({
+			// 	url: 'http://wapm2.shdsjt.cn/api/Houses/GetBuildingRentControl',
+			// 	data: {buildingId : 5856, },
+			// 	method:"POST",
+			// 	header : {'content-type':'application/x-www-form-urlencoded'},				
+			// 	success: function (res) {
+			// 		console.log(res.data);
+			// 	}
+			// });
 			// debugger;
 		},
 		methods: {

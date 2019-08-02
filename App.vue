@@ -12,8 +12,8 @@
 	}
 </script>
 
-<style>
-	/*每个页面公共css */
+<style lang="scss">
+	/*每个页面公共css */	
 	.page {
 		width: 100%;
 		height: 100%;
@@ -35,4 +35,19 @@
 		height: 1px;
 		background-color: #DBDBDA;
 	}
+	.fontB{
+		font-size: 30upx;
+	}
+	.fontL{
+		font-size: 23upx;
+	}
+	.title {//	
+	font-size: 30upx;
+	color: #2f3334;
+	font-weight: 600;
+	overflow: hidden;	
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	
+}
 </style>
